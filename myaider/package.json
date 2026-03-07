@@ -1,0 +1,23 @@
+{
+  "name": "openclaw-plugin-myaider",
+  "version": "0.1.0",
+  "description": "OpenClaw plugin for MyAider MCP integration — connect to myaider.ai MCP, invoke tools, and import dynamic skills into OpenClaw.",
+  "keywords": [
+    "openclaw",
+    "plugin",
+    "mcp",
+    "model-context-protocol",
+    "myaider",
+    "skills"
+  ],
+  "homepage": "https://www.myaider.ai/mcp",
+  "author": "MyAider",
+  "license": "MIT",
+  "openclaw": {
+    "plugin": true,
+    "skills": [
+      "skills/myaider-mcp/SKILL.md",
+      "skills/myaider-skill-importer/SKILL.md"
+    ]
+  }
+}

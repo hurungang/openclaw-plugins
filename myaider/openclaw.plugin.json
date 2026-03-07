@@ -1,0 +1,9 @@
+{
+  "name": "openclaw-plugin-myaider",
+  "version": "0.1.0",
+  "description": "OpenClaw plugin for MyAider MCP integration",
+  "skills": [
+    "skills/myaider-mcp/SKILL.md",
+    "skills/myaider-skill-importer/SKILL.md"
+  ]
+}
