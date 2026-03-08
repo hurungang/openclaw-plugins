@@ -27,7 +27,7 @@ The **openclaw-plugin-myaider** plugin must be installed and configured. If the 
        "entries": {
          "myaider": {
            "enabled": true,
-           "config": { "url": "https://mcp.myaider.ai/<your-token>/mcp" }
+           "config": { "url": "https://myaider.ai/api/v1/mcp?apiKey=<your-api-key>" }
          }
        }
      }

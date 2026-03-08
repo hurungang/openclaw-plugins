@@ -67,7 +67,7 @@ After installation, add your MyAider MCP URL to `openclaw.json`:
       "myaider": {
         "enabled": true,
         "config": {
-          "url": "https://mcp.myaider.ai/<your-token>/mcp"
+          "url": "https://myaider.ai/api/v1/mcp?apiKey=<your-api-key>"
         }
       }
     }
@@ -158,7 +158,7 @@ myaider_mcp (registered by plugin)
      │
      │  HTTP/SSE (MCP Streamable HTTP protocol)
      ▼
-MyAider MCP Server (https://mcp.myaider.ai/<your-token>/mcp)
+MyAider MCP Server (https://myaider.ai/api/v1/mcp?apiKey=<your-api-key>)
      │
      └─► get_myaider_skills, get_myaider_skill_updates, ...
 ```
