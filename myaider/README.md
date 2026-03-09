@@ -48,8 +48,8 @@ openclaw plugins install myaider
 
 ```bash
 cd ~/.openclaw/extensions/
-git clone https://github.com/hurungang/openclaw-plugins
-cd openclaw-plugins/myaider
+git clone https://github.com/hurungang/myaider
+cd myaider
 npm install
 openclaw gateway restart
 ```
@@ -58,7 +58,13 @@ openclaw gateway restart
 
 ## Configuration
 
-After installation, add your MyAider MCP URL to `openclaw.json`:
+After installation, configure your MyAider MCP URL via CLI:
+
+```bash
+openclaw config set plugins.entries.myaider.config.url https://myaider.ai/api/v1/mcp?apiKey=<your-api-key>
+```
+
+Or by editing `~/.openclaw/openclaw.json` directly:
 
 ```json
 {
