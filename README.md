@@ -1,64 +1,54 @@
 # myaider
 
-A collection of community plugins for [OpenClaw](https://openclaw.ai) — the AI-powered coding assistant and agent platform.
+**[MyAider.ai](https://www.myaider.ai)** is probably the first **skillful MCP hub**. Instead of relying on tool descriptions and schemas at runtime, MyAider uses **tool-based skills** — pre-built skill files that already contain all the instructions and tool details agents need. This means:
+
+- 🚀 **Zero token overhead** — tools on the MCP server have no descriptions or schemas; all the knowledge is embedded in skill files.
+- 🧠 **Skill-driven tool use** — skills tell the agent exactly how to call each tool, so no MCP introspection is needed at runtime.
+- 📦 **Living skill library** — import, upgrade, and sync skills directly from [myaider.ai](https://www.myaider.ai), keeping your agent up to date automatically.
+
+This repository provides the **myaider** plugin for [OpenClaw](https://openclaw.ai), connecting OpenClaw agents to the MyAider MCP hub.
 
 ---
 
-## What is OpenClaw?
+## What does the plugin do?
 
-OpenClaw is an AI agent platform with a plugin system that allows extending its capabilities through custom tools and skills. Plugins can register new agent tools, add skills, and integrate with external services.
-
----
-
-## Available Plugins
-
-### [`myaider`](./myaider)
-
-Connects OpenClaw to the [MyAider](https://www.myaider.ai) MCP (Model Context Protocol) server. This plugin:
-
-- Implements a native MCP HTTP client so OpenClaw agents can communicate with the MyAider MCP server.
+- Implements a native MCP HTTP client so OpenClaw agents can talk to the MyAider MCP server.
 - Registers the **`myaider_mcp`** agent tool for calling MyAider tools directly.
 - Provides two skills:
   - **`myaider-mcp`** — lets agents list and call tools on the MyAider MCP server.
   - **`myaider-skill-importer`** — imports and upgrades dynamic skills from MyAider into OpenClaw.
 
-See the [myaider plugin README](./myaider/README.md) for full documentation.
-
 ---
 
 ## Installation
-
-### Install a plugin via OpenClaw CLI (recommended)
 
 ```bash
 openclaw plugins install myaider
 ```
 
-### Install from source
+Or install from source:
 
 ```bash
 cd ~/.openclaw/extensions/
 git clone https://github.com/hurungang/myaider
-cd myaider
+cd myaider/myaider
 npm install
 openclaw gateway restart
 ```
 
 ---
 
-## Quick Start: myaider plugin
+## Quick Start
 
-1. **Install the plugin** (see above).
+1. **Get your MyAider MCP URL** from [https://www.myaider.ai/mcp](https://www.myaider.ai/mcp).
 
-2. **Get your MyAider MCP URL** from [https://www.myaider.ai/mcp](https://www.myaider.ai/mcp).
-
-3. **Configure your MyAider MCP URL** — either via CLI:
+2. **Configure the plugin** — either via CLI:
 
    ```bash
    openclaw config set plugins.entries.myaider.config.url https://myaider.ai/api/v1/mcp?apiKey=<your-api-key>
    ```
 
-   or by editing `~/.openclaw/openclaw.json` directly:
+   or by editing `~/.openclaw/openclaw.json`:
 
    ```json
    {
@@ -75,42 +65,25 @@ openclaw gateway restart
    }
    ```
 
-4. **Restart the gateway**:
+3. **Restart the gateway**:
 
    ```bash
    openclaw gateway restart
    ```
 
-5. **Try it in OpenClaw chat**:
+4. **Try it in OpenClaw chat**:
 
    ```
    List the tools available in my MyAider MCP
    ```
 
----
+   ```
+   Import my MyAider skills
+   ```
 
-## Repository Structure
-
-```
-myaider/
-└── myaider/               # MyAider MCP plugin
-    ├── README.md          # Full plugin documentation
-    ├── TESTING.md         # Step-by-step testing guide
-    ├── package.json
-    ├── openclaw.plugin.json
-    ├── src/
-    │   ├── index.js       # Plugin entry point
-    │   └── http-transport.js
-    └── skills/
-        ├── myaider-mcp/
-        └── myaider-skill-importer/
-```
-
----
-
-## Contributing
-
-Pull requests and new plugin contributions are welcome. Each plugin lives in its own subdirectory with its own `package.json`, `openclaw.plugin.json`, and `README.md`.
+   ```
+   Upgrade my MyAider skills to the latest version
+   ```
 
 ---
 
