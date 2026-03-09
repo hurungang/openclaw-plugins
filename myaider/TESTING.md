@@ -14,14 +14,20 @@ Or from source:
 
 ```bash
 cd ~/.openclaw/extensions/
-git clone https://github.com/hurungang/openclaw-plugins
-cd openclaw-plugins/myaider
+git clone https://github.com/hurungang/myaider
+cd myaider
 npm install
 ```
 
 ## 2. Configure your MCP URL
 
-Get your personal MCP URL from **https://www.myaider.ai/mcp**, then add it to `~/.openclaw/openclaw.json`:
+Get your personal MCP URL from **https://www.myaider.ai/mcp**, then set it via CLI:
+
+```bash
+openclaw config set plugins.entries.myaider.config.url https://myaider.ai/api/v1/mcp?apiKey=<your-api-key>
+```
+
+Or add it manually to `~/.openclaw/openclaw.json`:
 
 ```json
 {

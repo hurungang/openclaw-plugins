@@ -1,4 +1,4 @@
-# openclaw-plugins
+# myaider
 
 A collection of community plugins for [OpenClaw](https://openclaw.ai) — the AI-powered coding assistant and agent platform.
 
@@ -38,8 +38,8 @@ openclaw plugins install myaider
 
 ```bash
 cd ~/.openclaw/extensions/
-git clone https://github.com/hurungang/openclaw-plugins
-cd openclaw-plugins/myaider
+git clone https://github.com/hurungang/myaider
+cd myaider
 npm install
 openclaw gateway restart
 ```
@@ -52,7 +52,13 @@ openclaw gateway restart
 
 2. **Get your MyAider MCP URL** from [https://www.myaider.ai/mcp](https://www.myaider.ai/mcp).
 
-3. **Add the URL to `~/.openclaw/openclaw.json`**:
+3. **Configure your MyAider MCP URL** — either via CLI:
+
+   ```bash
+   openclaw config set plugins.entries.myaider.config.url https://myaider.ai/api/v1/mcp?apiKey=<your-api-key>
+   ```
+
+   or by editing `~/.openclaw/openclaw.json` directly:
 
    ```json
    {
@@ -86,7 +92,7 @@ openclaw gateway restart
 ## Repository Structure
 
 ```
-openclaw-plugins/
+myaider/
 └── myaider/               # MyAider MCP plugin
     ├── README.md          # Full plugin documentation
     ├── TESTING.md         # Step-by-step testing guide
