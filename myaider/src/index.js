@@ -396,12 +396,7 @@ function buildSkillMd(skill) {
     lines.push(String(skill.instructions).trim(), '');
   }
 
-  lines.push(
-    '## How to Invoke Tools',
-    '',
-    'Use `myaider_mcp` with `{ "action": "call", "tool": "<tool-name>", "args": { ... } }`.',
-  );
-
+  // Tools section - appended as the last section
   if (Array.isArray(skill.tools) && skill.tools.length > 0) {
     lines.push('', '## Tools');
     for (const tool of skill.tools) {
