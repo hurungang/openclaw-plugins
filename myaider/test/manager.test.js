@@ -391,13 +391,13 @@ describe('myaider_mcp action=sync_skills', () => {
     assert.ok(content.includes('myaider_mcp'), 'SKILL.md references myaider_mcp tool');
   });
 
-  it('includes dependency section with tool-translation note in the written SKILL.md', async () => {
+  it('includes important notes section with tool-calling instructions in the written SKILL.md', async () => {
     await callMcpTool(api, { action: 'sync_skills' });
     const skillMdPath = join(tmpDir, MOCK_SKILLS[0].name, 'SKILL.md');
     const content = await readFile(skillMdPath, 'utf-8');
-    assert.ok(content.includes('## Dependencies'), 'SKILL.md has Dependencies section');
-    assert.ok(content.includes('myaider'), 'SKILL.md dependency references myaider skill');
-    assert.ok(content.includes('Tool Call Translation'), 'SKILL.md has Tool Call Translation note');
+    assert.ok(content.includes('## Important Notes — Tool Calling'), 'SKILL.md has Important Notes section');
+    assert.ok(content.includes('myaider_mcp'), 'SKILL.md references myaider_mcp tool');
+    assert.ok(content.includes('IMPORTANT — Call Tool Step'), 'SKILL.md has tool calling instructions');
     assert.ok(content.includes('"action": "call"'), 'SKILL.md shows action:call pattern');
   });
 
